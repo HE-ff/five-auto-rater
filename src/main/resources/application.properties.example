@@ -1,0 +1,6 @@
+Authorization=Token
+datefile=lastdate
+
+logging.logback.rollingpolicy.max-history=3
+logging.logback.rollingpolicy.max-file-size=10MB
+logging.file.name=five-autorater.log

@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  five-autorater:
+    restart: unless-stopped
+    build: .
+    image: gk/five-autorater
+    container_name: five-autorater
+    volumes:
+       - "/etc/localtime:/etc/localtime:ro"
