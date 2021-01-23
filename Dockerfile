@@ -4,7 +4,7 @@ WORKDIR /home/five-autorater
 RUN ./gradlew build
 
 FROM openjdk:12-oracle as run
-RUN  curl https://ipapi.co/timezone > /etc/timezone
+RUN realpath /etc/localtime | sed 's|.*/\([^/]\+\/[^/]\+\)|\1|'  > /etc/timezone
 RUN groupadd -r gk && useradd -r -g gk gk
 COPY --from=build /home/five-autorater/build/libs/*.jar /home/gk/five-autorater.jar
 RUN chown -R gk:gk  /home/gk
