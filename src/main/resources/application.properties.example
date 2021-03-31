@@ -1,5 +1,7 @@
 Authorization=Token
 datefile=lastdate
+# today-30
+startDate=01.01.2021
 
 logging.logback.rollingpolicy.max-history=3
 logging.logback.rollingpolicy.max-file-size=10MB
