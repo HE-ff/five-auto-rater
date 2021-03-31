@@ -85,7 +85,7 @@ public class RequestService {
 
     public Transactions getTransactions(final long offset) {
         final String requestUrl = TRAN_D.concat(Long.toString(offset));
-        final HttpEntity<String> request = new HttpEntity<>(RATE, getHeaders());
+        final HttpEntity<String> request = new HttpEntity<>(getHeaders());
 
         ResponseEntity<Transactions> result = restTemplate.exchange(requestUrl, HttpMethod.GET, request, new ParameterizedTypeReference<Transactions>() {
         });
@@ -97,14 +97,12 @@ public class RequestService {
     public DetailCheck getDetail(final String id) {
         log.debug("getDetail:" + id);
         final String requestUrl = CHECK_DETAIL_D.concat(id).concat("/");
-        final HttpEntity<String> request = new HttpEntity<>(RATE, getHeaders());
+        final HttpEntity<String> request = new HttpEntity<>(getHeaders());
 
         final ResponseEntity<DetailCheck> result = restTemplate.exchange(requestUrl, HttpMethod.GET, request, DetailCheck.class);
         log.info("getDetail result " + result.getStatusCode().getReasonPhrase() + ":" + result);
         return result.getBody();
     }
-
-
 
 
     public boolean rateProducts(String json) {
