@@ -35,7 +35,7 @@ public class DateService {
         this.objectMapper = objectMapper;
         this.resourceFile = resourceFile;
         if (StringUtils.hasLength(startDate)) {
-            this.startDate = LocalDate.parse(startDate, DATE_FORMAT);
+            this.startDate = LocalDate.parse(startDate.trim(), DATE_FORMAT);
         } else {
             this.startDate = null;
         }
